@@ -35,9 +35,10 @@ public class HhTest extends BaseTest {
         Resume actualAttributes = new Resume(hhResumePage.getGender(),hhResumePage.getAge(),hhResumePage.getCity(),
                 hhResumePage.isPhoneConfirmed(),hhResumePage.isReadyToRelocate());
 
-        // 1 способ сравнения классов
-        // Assert.assertTrue(EqualsBuilder.reflectionEquals(expectedAttributes,actualAttributes));
-
+        /** 
+            1 способ сравнения классов
+         Assert.assertTrue(EqualsBuilder.reflectionEquals(expectedAttributes,actualAttributes));
+        */
         // 2 способ сравнения отдельных переменных в классе
         assertEquals(expectedAttributes.getGender(),actualAttributes.getGender());
         assertEquals(expectedAttributes.getAge(),actualAttributes.getAge());
