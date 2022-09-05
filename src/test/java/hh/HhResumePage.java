@@ -25,7 +25,7 @@ public class HhResumePage {
         Selenide.open(url);
     }
 
-    public Map<String, Object> getAttributes(){
+    public Map<String, Object> getAttributes() {
         /** большой метод
         Map<String, Object> attributes = new HashMap<>();
         attributes.put(GENDER, getGender());
@@ -35,7 +35,7 @@ public class HhResumePage {
         attributes.put(READY_TO_RELOCATE, isReadyToRelocate());
         return attributes;
          */
-        return new HashMap<String,Object>(){{
+        return new HashMap<String,Object>() {{
             put(GENDER, getGender());
             put(AGE, getAge());
             put(CITY, getCity());
@@ -44,11 +44,11 @@ public class HhResumePage {
         }};
     }
 
-    public boolean isPhoneConfirmed(){
+    public boolean isPhoneConfirmed() {
         return tick.isDisplayed();
     }
 
-    public boolean isReadyToRelocate(){
+    public boolean isReadyToRelocate() {
         /** String[] array = liveData.getText().split(", ");
         String relocate = array[2];
         return false;
@@ -56,28 +56,27 @@ public class HhResumePage {
         return !liveData.getText().split(", ")[1].equals("не готов к переезду");
     }
 
-    public String getCity(){
+    public String getCity() {
         return city.getText();
     }
 
-    public int getAge(){
+    public int getAge() 
         return Integer.parseInt(age.getText().replaceAll("\\D+", ""));
     }
 
     /**
-    public String getGender(){
+    public String getGender() {
         String genderValue = gender.getText();
         // получаем текст из веб элемента
-        if(genderValue == "Мужчина"){
+        if(genderValue == "Мужчина") {
             return "M";
         }
         return "Ж";
     }
     */
 
-    public String getGender(){
+    public String getGender() {
         // тернарный оператор (в одну строку)
         return gender.getText().equals("Мужчина") ? "М" : "Ж";
     }
-
 }
